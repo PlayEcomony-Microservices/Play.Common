@@ -17,7 +17,8 @@ namespace Play.Common.MongoDB
     {
         public static IServiceCollection AddMongo(this IServiceCollection services)
         {
-            BsonSerializer.RegisterSerializationProvider(new GuidSerializationProvider());
+            // BsonSerializer.RegisterSerializationProvider(new GuidSerializationProvider());
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             BsonSerializer.RegisterSerializationProvider(new DateTimeOffsetSerializationProvider());
 
             services.AddSingleton(serviceProvider =>
