@@ -24,8 +24,8 @@ namespace Play.Common.Identity
             {
                 var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
-                options.Authority = serviceSettings.Authority;
-                options.Audience = serviceSettings.ServiceName;
+                options.Authority = serviceSettings?.Authority;
+                options.Audience = serviceSettings?.ServiceName;
                 options.MapInboundClaims = false;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
