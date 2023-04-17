@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Play.Common.Settings;
 using MassTransit.ExtensionsDependencyInjectionIntegration;
+using GreenPipes.Configurators;
+using MassTransit.Definition;
+using GreenPipes;
 
 namespace Play.Common.MassTransit
 {
@@ -23,6 +26,8 @@ namespace Play.Common.MassTransit
                 configure.AddConsumers(Assembly.GetEntryAssembly());
                 configure.UsingPlayEconomyRabbitMq(configureRetries);
             });
+
+            services.AddMassTransitHostedService();
 
             return services;
         }
