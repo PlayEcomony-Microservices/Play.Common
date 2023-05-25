@@ -9,5 +9,9 @@ Packages are published on Github packages.
 ```powershell
 $version=1.10.0
 $owner="PlayEcomony-Microservices"
+$gh_pat="[PAT HERE]"
 dotnet pack src\Play.Common --configuration Release -p:PackageVersion=$version -p:RepositoryUrl=https://github.com/$owner/Play.Common -o ..\packages
+
+dotnet nuget push ..\packages\Play.Common.$version.nupkg --api-key $gh_pat --source "github"
+
 ```
