@@ -8,7 +8,7 @@ Packages are published on GitHub packages.
 ## Create and publish package
 
 ```powershell
-$version="1.10.4"
+$version="1.10.5"
 $owner="PlayEcomony-Microservices"
 $gh_pat="[PAT HERE]"
 dotnet pack src\Play.Common --configuration Release -p:PackageVersion=$version -p:RepositoryUrl=https://github.com/$owner/Play.Common -o ..\packages
